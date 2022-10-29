@@ -1,8 +1,8 @@
 package azure
 
 import (
-	"github.com/probr/probr-sdk/config"
-	"github.com/probr/probr-sdk/utils"
+	"github.com/privateerproj/privateer-sdk/config"
+	"github.com/privateerproj/privateer-sdk/utils"
 )
 
 // TenantID returns the azure Tenant in which the tests should be executed, configured by the user and may be set by the environment variable AZURE_TENANT_ID.

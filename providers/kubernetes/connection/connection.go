@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/probr/probr-sdk/providers/kubernetes/errors"
-	"github.com/probr/probr-sdk/utils"
+	"github.com/privateerproj/privateer-sdk/providers/kubernetes/errors"
+	"github.com/privateerproj/privateer-sdk/utils"
 	apiv1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

@@ -7,8 +7,8 @@ import (
 	"log"
 	"path/filepath"
 
-	"github.com/probr/probr-sdk/config"
-	"github.com/probr/probr-sdk/utils"
+	"github.com/privateerproj/privateer-sdk/config"
+	"github.com/privateerproj/privateer-sdk/utils"
 )
 
 // SummaryState is a stateful object intended to hold all the high-level info about a probe execution

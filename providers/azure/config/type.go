@@ -1,6 +1,6 @@
 package azureconfig
 
-import "github.com/probr/probr-sdk/config/setter"
+import "github.com/privateerproj/privateer-sdk/config/setter"
 
 // Azure config options that may be required by any service pack
 type Azure struct {

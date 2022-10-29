@@ -6,15 +6,15 @@ import (
 
 	hclog "github.com/hashicorp/go-hclog"
 	hcplugin "github.com/hashicorp/go-plugin"
-	"github.com/probr/probr-sdk/logging"
+	"github.com/privateerproj/privateer-sdk/logging"
 )
 
 const (
 	// The constants below are the names of the plugins that can be dispensed
 	// from the plugin server.
 
-	// ServicePackPluginName ...
-	ServicePackPluginName = "servicepack"
+	// RaidPluginName ...
+	RaidPluginName = "raid"
 )
 
 // handshakeConfigs are used to just do a basic handshake between
@@ -26,7 +26,7 @@ var handshakeConfig = GetHandshakeConfig()
 // ServeOpts are the configurations to serve a plugin.
 type ServeOpts struct {
 	//Interface implementation
-	Pack ServicePack
+	Pack Raid
 
 	// Logger is the logger that go-plugin will use.
 	Logger hclog.Logger
@@ -58,7 +58,7 @@ func Serve(opts *ServeOpts) {
 
 	// hcpluginMap is the map of hcplugins we can dispense.
 	var hcpluginMap = map[string]hcplugin.Plugin{
-		ServicePackPluginName: &ServicePackPlugin{Impl: spProbr},
+		RaidPluginName: &RaidPlugin{Impl: spProbr},
 	}
 
 	hcplugin.Serve(&hcplugin.ServeConfig{
@@ -74,6 +74,6 @@ func GetHandshakeConfig() hcplugin.HandshakeConfig {
 	return hcplugin.HandshakeConfig{
 		ProtocolVersion:  1,
 		MagicCookieKey:   "PROBR_MAGIC_COOKIE",
-		MagicCookieValue: "probr.servicepack",
+		MagicCookieValue: "privateer.raid",
 	}
 }

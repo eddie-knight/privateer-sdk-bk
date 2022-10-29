@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/probr/probr-sdk/config/setter"
-	"github.com/probr/probr-sdk/utils"
+	"github.com/privateerproj/privateer-sdk/config/setter"
+	"github.com/privateerproj/privateer-sdk/utils"
 )
 
 // GlobalConfig ...
@@ -30,7 +30,7 @@ func (ctx *GlobalOpts) Init() {
 
 // decode uses an SDK helper to create a YAML file decoder,
 // parse the file to an object, then extracts the values from
-// ServicePacks.Kubernetes into this context
+// Raids.Kubernetes into this context
 func (ctx *GlobalOpts) decode() (err error) {
 	configDecoder, file, err := NewConfigDecoder(ctx.VarsFile)
 	if err != nil {
@@ -55,7 +55,7 @@ func (ctx *GlobalOpts) setEnvAndDefaults() {
 	// 3. Default value to set if flags, vars file, and env have not provided a value
 
 	home, _ := os.UserHomeDir()
-	setter.SetVar(&ctx.InstallDir, "PROBR_INSTALL_DIR", filepath.Join(home, "probr"))
+	setter.SetVar(&ctx.InstallDir, "PROBR_INSTALL_DIR", filepath.Join(home, "privateer"))
 
 	setter.SetVar(&ctx.TmpDir, "PROBR_TMP_DIR", filepath.Join(ctx.InstallDir, "tmp"))
 	setter.SetVar(&ctx.WriteDirectory, "PROBR_WRITE_DIRECTORY", ctx.outputDir())
@@ -109,7 +109,7 @@ func (ctx *GlobalOpts) CleanupTmp() {
 // outputDir parses a filepath based on GlobalOpts.InstallDir and the datetime this was initialized
 func (ctx *GlobalOpts) outputDir() string {
 	execName := utils.GetExecutableName()
-	if execName == "probr" {
+	if execName == "privateer" {
 		return filepath.Join(ctx.InstallDir, "output")
 	}
 	return filepath.Join(ctx.InstallDir, "output", execName)

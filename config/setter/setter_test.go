@@ -96,7 +96,7 @@ func TestSetStringSliceVar(t *testing.T) {
 }
 
 func Test_setStringVar(t *testing.T) {
-	defaultValuePROBRWRITEDIRECTORY := "probr_output"
+	defaultValuePROBRWRITEDIRECTORY := "privateer_output"
 	envVarValuePROBRWRITEDIRECTORY := "ValueFromEnvVar_WriteDirectory"
 
 	tests := []struct {
